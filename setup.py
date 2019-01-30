@@ -9,4 +9,7 @@ setup(
 		author_email='joseph.chen@magnumwm.com',
 		url='https://github.com/magnumwmjoseph/ziplineaqm',
 		packages=find_packages(),
+		install_requires=[
+			'numpy==1.16.0',
+		]
 )
