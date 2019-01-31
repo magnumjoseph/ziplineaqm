@@ -14,5 +14,6 @@ setup(
 			'pandas-datareader==0.7.0',
 			'trading-calendars==1.2.0',
 			'tabulate==0.8.3',
+			'Logbook==1.4.3',
 		]
 )
