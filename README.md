@@ -37,7 +37,7 @@ class MyPerTransaction(commission.PerTransaction):
 		if commission_type == float(1):  # cost per dollar
 			return abs(amount) * price * commission * 0.0001
 		elif commission_type==float(2): # cost per lot
-			return abs(amount) * commission * 0.0001
+			return abs(amount) * commission 
 		else: # take care of all other commission types
 			return 0.0
 ```
