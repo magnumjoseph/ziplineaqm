@@ -408,9 +408,9 @@ class PerTransaction(CommissionModel):
         price = transaction.price
         amount = transaction.amount
         if commission_type==float(1): # cost per dollar
-            return abs(amount)*price*commission
+            return abs(amount)*price*commission*0.0001
         elif commission_type==float(2): # cost per lot
-            return abs(amount)*commission
+            return abs(amount)*commission*0.0001
         else:
             raise ValueError("In the default AQM commission model, only ``commission_type`` = 1 or 2 is accepted.\n"
                              "If you want to use other types, you may need to overwrithe the ``PerTransaction`` "
