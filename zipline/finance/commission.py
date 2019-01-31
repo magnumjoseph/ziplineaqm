@@ -395,10 +395,8 @@ class PerTransaction(CommissionModel):
         pass
 
     def __repr__(self):
-        return "{class_name}(cost_per_dollar={cost_per_dollar}, cost_per_lot={cost_per_lot})".format(
+        return "{class_name}()".format(
             class_name=self.__class__.__name__,
-            cost_per_dollar=self.cost_per_dollar,
-            cost_per_lot=self.cost_per_lot,
         )
 
     def calculate(self, order, transaction):
@@ -411,6 +409,11 @@ class PerTransaction(CommissionModel):
         amount = transaction.amount
         if commission_type==float(1): # cost per dollar
             return abs(amount)*price*commission
-        else: # if commission_type==float(2): # cost per lot
+        elif commission_type==float(2): # cost per lot
             return abs(amount)*commission
-        # TODO [joseph]: raise error if commission type is other than 1 and 2
+        else:
+            raise ValueError("In the default AQM commission model, only ``commission_type`` = 1 or 2 is accepted.\n"
+                             "If you want to use other types, you may need to overwrithe the ``PerTransaction`` "
+                             "model first.")
+
+
