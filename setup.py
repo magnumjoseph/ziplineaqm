@@ -284,6 +284,8 @@ conditional_arguments = {
     'setup_requires' if not conda_build else 'build_requires': setup_requires,
 }
 
+ziplineaqm_requires = ['trading-calendars==1.2.0', 'tabulate==0.8.3', 'maya==0.6.1']
+
 setup(
     name='zipline',
     url="http://zipline.io",
@@ -318,7 +320,7 @@ setup(
         'Topic :: Scientific/Engineering :: Information Analysis',
         'Topic :: System :: Distributed Computing',
     ],
-    install_requires=install_requires(conda_format=conda_build),
+    install_requires=install_requires(conda_format=conda_build) + ziplineaqm_requires,
     extras_require=extras_requires(conda_format=conda_build),
     **conditional_arguments
 )
