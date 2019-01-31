@@ -15,5 +15,6 @@ setup(
 			'trading-calendars==1.2.0',
 			'tabulate==0.8.3',
 			'Logbook==1.4.3',
+			'SQLAlchemy==1.2.17',
 		]
 )
